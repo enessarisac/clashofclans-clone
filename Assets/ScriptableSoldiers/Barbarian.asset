@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b2a0bb27386994a8010d8de37c0da8, type: 3}
+  m_Name: Barbarian
+  m_EditorClassIdentifier: 
+  soldierColor: {r: 0.3584906, g: 0.20432526, b: 0.08285868, a: 0}
+  speed: 10
+  soldierScale: {x: 1, y: 1, z: 1}
+  typeName: Barbarian
+  favouriteTarget: Defence
+  power: 5
