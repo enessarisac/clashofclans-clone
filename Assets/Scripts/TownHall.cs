@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TownHall : MonoBehaviour
 {
     [SerializeField]private TownType townType=null;
+    [SerializeField]private PlayerSources playerSources=null;
     public Town town;
     public float level;
+    public Button levelUpbutton;
     public float charge;
+    public Text levelText,requiredMoneyText,consText;
     public float time,requiredTime;
     public  bool construction;
     private void Start()
@@ -16,14 +20,19 @@ public class TownHall : MonoBehaviour
         charge=townType.fee;
         requiredTime=townType.constructionTime;
 
-
         StartCoroutine(check());
     }
     IEnumerator check()
     {
-        townType.currentLevel=level;
-        townType.fee=charge;
-        yield return new WaitForSeconds(2f);
+        while(true)
+        {
+            requiredMoneyText.text=(charge.ToString());
+            levelText.text=(level.ToString());
+            townType.currentLevel=level;
+            townType.fee=charge;
+            townType.constructionTime=requiredTime;
+            yield return new WaitForSeconds(2f);
+        }
     }
     private void Update() 
     {
@@ -34,17 +43,22 @@ public class TownHall : MonoBehaviour
     }
     public void onUpgrade()
     {
-        if(!construction)
+        if(!construction&&playerSources.money>charge)
         {
+        playerSources.money-=charge;
         construction=true;
         time=requiredTime;
-        check();
+        levelUpbutton.interactable=true;
+        }
+        if(playerSources.money<charge)
+        {
+            levelUpbutton.interactable=false;
         }
         
     }
     public void Upgrading()
     {
-
+        consText.text=(time.ToString());
         time-=1*Time.deltaTime;
         if(time<=0)
         {

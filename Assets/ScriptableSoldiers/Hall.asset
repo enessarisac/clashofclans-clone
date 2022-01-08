@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb709d0d97f53e44817452aa0e8e64d, type: 3}
   m_Name: Hall
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 3
   maxLevel: 5
-  fee: 1000
-  constructionTime: 5
+  fee: 30000
+  constructionTime: 60
